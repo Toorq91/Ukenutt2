@@ -30,11 +30,11 @@ function convertInput() {
 
     console.log(`Input mottatt: ${input}`); // Debugging
 
-    if (/^[01]+$/.test(input) && input.length >= 4) {
+    if (/^[01]+$/.test(input) && input.length >= 4) {  // Hvis input er binært (kun 0 og 1, minst 4 tegn), kaller den convertBinaryToTextAndHex()
         result = convertBinaryToTextAndHex(input);
-    } else if (/^[A-Fa-f0-9]+$/.test(input) && input.length % 2 === 0) {
+    } else if (/^[A-Fa-f0-9]+$/.test(input) && input.length % 2 === 0) { // Hvis input er gyldig hex (kun 0-9, A-F, partall antall tegn), kaller den convertHexToASCIIAndBinary()
         result = convertHexToASCIIAndBinary(input);
-    } else {
+    } else {                                          // Ellers antar den at input er tekst og kaller convertTextToBinaryAndHex()
         result = convertTextToBinaryAndHex(input);
     }
 
